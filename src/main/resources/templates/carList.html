@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <title>Liste des voitures</title>
 </head>
-<main class="flex-shrink-0">
-    <div class="container">
-        <table class="table">
-            <thead class="table-dark">
+<main>
+    <div>
+        <table>
+            <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Age</th>
+                <th scope="col">Marque</th>
+                <th scope="col">Modèle</th>
+                <th scope="col">Année</th>
+                <th scope="col">Trim</th>
+                <th scope="col">Kilomètres</th>
+                <th scope="col">Prix</th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +24,9 @@
                 <td th:text="${car.getBrand}"></td>
                 <td th:text="${car.getModel}"></td>
                 <td th:text="${car.getYear}"></td>
+                <td th:text="${car.getTrim}"></td>
+                <td th:text="${car.getKms}"></td>
+                <td th:text="${car.getPrice}"></td>
             </tr>
             </tbody>
         </table>

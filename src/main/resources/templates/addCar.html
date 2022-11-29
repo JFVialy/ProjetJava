@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une voiture</title>
+</head>
+<body>
+    <form method="post" th:action="@{/caradded}" th:object="${car}">
+        <input type="text" id="brand" placeholder="Marque" th:field="*{brand}" required><br>
+        <input type="text" id="model" placeholder="Modèle" th:field="*{model}" required><br>
+        <input type="number" id="year" placeholder="Année" th:field="*{year}" required><br>
+        <input type="text" id="trim" placeholder="Package" th:field="*{trim}" required><br>
+        <input type="number" id="kms" placeholder="Kilomètres" th:field="*{kms}" required><br>
+        <input type="number" id="price" placeholder="Prix" th:field="*{price}" required><br>
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>

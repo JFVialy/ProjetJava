@@ -21,4 +21,11 @@ public class CarPersistenceAdapter implements GetCars
         List<CarJpaEntity> carEntities = carRepository.findAll();
         return carMapper.mapToDomainEntity(carEntities);
     }
+
+    @Override
+    public void addCarToDB(Car car)
+    {
+        System.out.println(car.getBrand());
+        carRepository.save(carMapper.mapToJpaEntity(car));
+    }
 }

@@ -7,4 +7,5 @@ import java.util.List;
 public interface GetCars
 {
     List<Car> getAllCars();
+    void addCarToDB(Car car);
 }

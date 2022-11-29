@@ -5,6 +5,7 @@ import com.heh.superconcessionnaire2000.adapter.out.CarMapper;
 import com.heh.superconcessionnaire2000.adapter.out.CarPersistenceAdapter;
 import com.heh.superconcessionnaire2000.adapter.out.CarRepository;
 import com.heh.superconcessionnaire2000.domain.CarLogic;
+import com.heh.superconcessionnaire2000.port.in.AddCarUseCase;
 import com.heh.superconcessionnaire2000.port.in.CarListUseCase;
 import com.heh.superconcessionnaire2000.port.out.GetCars;
 import org.springframework.beans.factory.annotation.Autowired;
