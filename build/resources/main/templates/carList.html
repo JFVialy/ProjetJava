@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des voitures</title>
+</head>
+<main class="flex-shrink-0">
+    <div class="container">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="car : ${cars}">
+                <td th:text="${car.getCarId}"></td>
+                <td th:text="${car.getBrand}"></td>
+                <td th:text="${car.getModel}"></td>
+                <td th:text="${car.getYear}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</html>
