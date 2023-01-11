@@ -4,18 +4,18 @@
 <header th:replace="fragments/template.html :: header"> </header>
 <body>
     <div class="formContainer">
-        <form id="addCarForm" method="post" th:action="@{/caradded}" th:object="${car}" enctype="multipart/form-data">
+        <form id="updateCarForm" method="post" th:action="@{/carupdated}" th:object="${carToUpdate}" enctype="multipart/form-data">
             <h3>Entrez les informations de la voiture</h3>
+            <input type="hidden" id="carId" th:field="*{carId}">
             <input type="hidden" id="sold" th:field="*{sold}">
             <input type="hidden" id="deleted" th:field="*{deleted}">
+            <input type="hidden" id="image" th:field="*{image}">
             <input type="text" id="brand" placeholder="Marque" th:field="*{brand}" required><br>
             <input type="text" id="model" placeholder="Modèle" th:field="*{model}" required><br>
             <input type="number" name="year" id="year" placeholder="Année" th:field="*{year}" required value=" "><br>
             <input type="text" id="trim" placeholder="Package" th:field="*{trim}" required><br>
             <input type="number" name="kms" id="kms" placeholder="Kilomètres" th:field="*{kms}" required value=" "><br>
             <input type="number" name="price" id="price" placeholder="Prix" th:field="*{price}" required value=" "><br>
-            <label for="imageFile">Image</label><br>
-            <input type="file" name="imageFile" id="imageFile" accept="image/*">
             <input type="submit" value="Ajouter">
         </form>
     </div>
