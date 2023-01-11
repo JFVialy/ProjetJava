@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:insert="fragments/template.html :: head"></div>
+<header th:replace="fragments/template.html :: header"> </header>
+<body>
+    <div>
+        <table class="table prevent-select">
+            <thead>
+            <tr>
+                <th scope="col">Numéro de contrat</th>
+                <th scope="col">Voiture</th>
+                <th scope="col">Username</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Date d'achat</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="contract : ${contracts}">
+                <td th:text="${contract.getContractId}"></td>
+                <td th:text="${contract.getCarString}"></td>
+                <td th:text="${contract.getUsername}"></td>
+                <td th:text="${contract.getLastname}"></td>
+                <td th:text="${contract.getFirstname}"></td>
+                <td th:text="${contract.getDate}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<footer th:insert="fragments/template.html :: footer"> </footer>
+</html>

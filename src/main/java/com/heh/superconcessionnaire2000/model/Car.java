@@ -1,12 +1,14 @@
 package com.heh.superconcessionnaire2000.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDate;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Car
 {
     @Getter
@@ -29,6 +31,18 @@ public class Car
 
     @Getter
     private final Integer price;
+
+    @Getter
+    @Setter
+    private String image;
+
+    @Getter
+    @Setter
+    private Boolean sold;
+
+    @Getter
+    @Setter
+    private Boolean deleted;
 
     public String carToString()
     {

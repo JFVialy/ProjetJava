@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:insert="fragments/template.html :: head"></div>
+<header th:replace="fragments/template.html :: header"> </header>
+<body>
+<div class="car_container">
+    <h1 th:text="${car.carToString}"></h1>
+    <img width="500" th:src="@{${'/car_images/' + car.getImage}}"/>
+    <h4 th:text="@{${car.getKms + ' Kilomètres'}}"></h4>
+    <h4 th:text="@{${car.getPrice + ' €'}}"></h4>
+    <form method="POST" th:if="${car.getSold == false}" th:action="@{/buycar}">
+        <input type="hidden" name="carId" id="carId" th:value="${car.getCarId}" />
+        <button type="submit" name="submit" value="value" onclick="return confirm('T\'es sur batard ?')">Acheter la voiture</button>
+    </form>
+    <h1 th:unless="${car.getSold == false}">VOITURE DEJA VENDUE</h1>
+</div>
+</body>
+<footer th:insert="fragments/template.html :: footer"> </footer>
+</html>

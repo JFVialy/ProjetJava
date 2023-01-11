@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8" />
+    <title>Super Concessionaire 2000</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:fragment="header" class="fixed-header">
+        <div class="container">
+            <nav>
+                <a href="home">Accueil</a>
+                <a href="carlist">Liste des voitures</a>
+                <a href="userinfo">Informations utilisateur</a>
+                <a href="contractlist" th:if="${session.admin == true}">Liste des contrats</a>
+                <a href="logout">Se déconnecter</a>
+                <div th:if="${session.admin == true}">Connecté en tant qu'administrateur</div>
+            </nav>
+        </div>
+    </div>
+</body>
+<footer th:fragment="footer">
+    <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2022 Agence Informatix</div>
+    </div>
+</footer>
+</html>

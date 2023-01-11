@@ -1,35 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des voitures</title>
-</head>
-<main>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:insert="fragments/template.html :: head"></div>
+<header th:replace="fragments/template.html :: header"> </header>
+<body>
     <div>
-        <table>
+        <table class="table prevent-select">
             <thead>
             <tr>
-                <th scope="col">ID</th>
                 <th scope="col">Marque</th>
                 <th scope="col">Modèle</th>
                 <th scope="col">Année</th>
                 <th scope="col">Trim</th>
                 <th scope="col">Kilomètres</th>
                 <th scope="col">Prix</th>
+                <th scope="col">Statut</th>
+                <th scope="col">Image</th>
+                <th scope="col">Voir</th>
+                <th scope="col" th:if="${session.admin == true}">Supprimer</th>
+                <th scope="col" th:if="${session.admin == true}">Modifier</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="car : ${cars}">
-                <td th:text="${car.getCarId}"></td>
+            <tr th:if="${car.deleted == false}" th:each="car : ${cars}">
                 <td th:text="${car.getBrand}"></td>
                 <td th:text="${car.getModel}"></td>
                 <td th:text="${car.getYear}"></td>
                 <td th:text="${car.getTrim}"></td>
                 <td th:text="${car.getKms}"></td>
                 <td th:text="${car.getPrice}"></td>
+                <td>
+                    <span th:if="${car.getSold == true}">Vendue</span>
+                    <span th:unless="${car.getSold == true}">A vendre</span>
+                </td>
+                <td><img width="100" th:src="@{${'/car_images/' + car.getImage}}"/></td>
+                <td>
+                    <form method="POST" th:action="@{/carview}">
+                        <input type="hidden" name="carId" id="carId" th:value="${car.getCarId}" />
+                        <button type="submit" name="submit" value="value">Voir la voiture</button>
+                    </form>
+                </td>
+                <td th:if="${session.admin == true}">
+                    <form method="POST" th:action="@{/cardelete}">
+                        <input type="hidden" name="carId" id="carId2" th:value="${car.getCarId}" />
+                        <button type="submit" name="submit" value="value" onclick="return confirm('T\'es sur batard ?')">Supprimer la voiture</button>
+                    </form>
+                </td>
+                <td th:if="${session.admin == true}">
+                    <form method="POST" th:action="@{/updatecar}">
+                        <input type="hidden" name="carId" id="carId3" th:value="${car.getCarId}" />
+                        <button type="submit" name="submit" value="value">Modifier la voiture</button>
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
-</main>
+    <a href="addcar" class="button" th:if="${session.admin == true}">Ajouter une voiture</a>
+</body>
+<footer th:insert="fragments/template.html :: footer"> </footer>
 </html>

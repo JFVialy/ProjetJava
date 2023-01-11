@@ -2,17 +2,13 @@ package com.heh.superconcessionnaire2000.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 
 @RequiredArgsConstructor
 public class User
 {
     @Getter
-    private final Integer userId;
+    private final String userId;
 
     @Getter
     private final String firstname;
@@ -21,26 +17,17 @@ public class User
     private final String lastname;
 
     @Getter
-    private final LocalDate birthdate;
+    private final String email;
 
-    @Setter
     @Getter
-    private boolean admin;
+    private final String username;
 
-    public Integer getAge()
-    {
-        LocalDate today = LocalDate.now();
-        return today.getYear() - this.getBirthdate().getYear();
-    }
+    @Getter
+    private final String role;
 
-    public void OP()
+    public String userToString()
     {
-        this.admin = true;
-    }
-
-    public void deOP()
-    {
-        this.admin = false;
+        return username + " (" + firstname + " " + lastname + ")";
     }
 }
 

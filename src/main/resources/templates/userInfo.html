@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<div th:insert="fragments/template.html :: head"></div>
+<header th:replace="fragments/template.html :: header"> </header>
+<body>
+<div class="car_container">
+    <h1 th:text="${user?.userToString}"></h1>
+    <h4 th:text="@{${'Email : ' + user?.getEmail}}"></h4>
+    <h4 th:text="@{${'Id User : ' + user?.getUserId}}"></h4>
+    <h4 th:text="@{${'Role : ' + user?.getRole}}"></h4>
+</div>
+</body>
+<footer th:insert="fragments/template.html :: footer"> </footer>
+</html>
